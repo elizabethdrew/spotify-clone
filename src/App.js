@@ -1,7 +1,7 @@
 import React, {useEffect} from 'react'
 import Login from './components/login'
 import Spotify from './components/Spotify';
-import { reducerCases } from './utils/Constant';
+import { reducerCases } from './utils/Constants';
 import { useStateProvider } from './utils/stateProvider';
 
 export default function App() {
