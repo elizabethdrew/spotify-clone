@@ -1,51 +1,21 @@
-import React, { Component } from 'react';
-import PropTypes from 'prop-types';
+import React, {useEffect} from 'react'
+import Login from './components/login'
+import Spotify from './components/Spotify';
+import { reducerCases } from './utils/Constant';
+import { useStateProvider } from './utils/stateProvider';
 
-class App extends Component {
-  constructor(props) {
-    super(props);
-
-  }
-
-  componentWillMount() {
-
-  }
-
-  componentDidMount() {
-
-  }
-
-  componentWillReceiveProps(nextProps) {
-
-  }
-
-  shouldComponentUpdate(nextProps, nextState) {
-
-  }
-
-  componentWillUpdate(nextProps, nextState) {
-
-  }
-
-  componentDidUpdate(prevProps, prevState) {
-
-  }
-
-  componentWillUnmount() {
-
-  }
-
-  render() {
-    return (
-      <div>
-
-      </div>
-    );
-  }
+export default function App() {
+  const [{ token }, dispatch] = useStateProvider();
+  useEffect (()=> {
+    const hash = window.location.hash;
+    if(hash) {
+      const token = hash.substring(1).split("&")[0].split("=")[1];
+      dispatch({type: reducerCases.SET_TOKEN, token });
+    }
+  }, [token, dispatch])
+  return (
+    <div>
+      { token ? <Spotify /> : <Login /> }
+    </div>
+  );
 }
-
-App.propTypes = {
-
-};
-
-export default App;
