@@ -41,6 +41,7 @@ export default function Body({ headerBackground }) {
     };
     getInitialPlaylist();
   }, [token, dispatch, selectedPlaylistId]);
+  
   const playTrack = async (
     id,
     name,
@@ -66,13 +67,13 @@ export default function Body({ headerBackground }) {
       }
     );
     if (response.status === 204) {
-      const currentPlaying = {
+      const currentlyPlaying = {
         id,
         name,
         artists,
         image,
       };
-      dispatch({ type: reducerCases.SET_PLAYING, currentPlaying });
+      dispatch({ type: reducerCases.SET_PLAYING, currentlyPlaying });
       dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
     } else {
       dispatch({ type: reducerCases.SET_PLAYER_STATE, playerState: true });
