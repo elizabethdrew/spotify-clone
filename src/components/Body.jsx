@@ -154,7 +154,7 @@ export default function Body({ headerBackground }) {
                         </div>
                         <div className="info">
                           <span className="name">{name}</span>
-                          <span>{artists}</span>
+                          <span className="artistname">{artists.join(", ")}</span>
                         </div>
                       </div>
                       <div className="col">
@@ -238,6 +238,10 @@ const Container = styled.div`
           .info {
             display: flex;
             flex-direction: column;
+          }
+          .artistname {
+            font-size: 12px;
+            margin-bottom: 5px;
           }
         }
       }
