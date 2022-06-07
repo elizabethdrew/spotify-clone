@@ -4,7 +4,7 @@ import styled from 'styled-components';
 export default function login() {
     const handleClick = () => {
         const clientId = "8e49b20813b743f7bff87ab2203fccb3";
-        const redirectUrl = "http://localhost:3000/";
+        const redirectUrl = "http://localhost:8888/.netlify/functions/callback/";
         const apiUrl = "https://accounts.spotify.com/authorize";
         const scope = [
             "user-read-email", 
